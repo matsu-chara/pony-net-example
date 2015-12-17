@@ -1,5 +1,9 @@
 use "net"
 
+actor Main
+  new create(env: Env) =>
+    TCPListener.ip4(recover Listener(env) end)
+
 class Listener is TCPListenNotify
   let _env: Env
   var _host: String = ""
